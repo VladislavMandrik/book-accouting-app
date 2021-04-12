@@ -8,17 +8,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 @Data
 @Entity
-@Table(name = "e-books")
-public class E_books
-        {
+@Table(name = "electronicBooks")
+public class ElectronicBook {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "e-book name", nullable = false)
-    private String e_BookName;
-    @Column(name = "Number_of_pages", nullable = false)
-    private String numberOfPages;
+    @Column(name = "electronic_book_name", nullable = false)
+    private String electronicBookName;
+    @Column(name = "number_of_pages", nullable = false)
+    private Integer numberOfPages;
 }
