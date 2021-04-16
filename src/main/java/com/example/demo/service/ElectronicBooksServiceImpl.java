@@ -35,8 +35,28 @@ public class ElectronicBooksServiceImpl implements ElectronicBooksService {
             electronicBookInDb.setElectronicBookName(electronicBook.getElectronicBookName());
         }
 
+        if (electronicBook.getAuthor() != null) {
+            electronicBookInDb.setAuthor(electronicBook.getAuthor());
+        }
+
+        if (electronicBook.getGenre() != null) {
+            electronicBookInDb.setGenre(electronicBook.getGenre());
+        }
+
         if (electronicBook.getNumberOfPages() != null) {
             electronicBookInDb.setNumberOfPages(electronicBook.getNumberOfPages());
+        }
+
+        if (electronicBook.getYearOfPublishing() != null) {
+            electronicBookInDb.setYearOfPublishing(electronicBook.getYearOfPublishing());
+        }
+
+        if (electronicBook.getTextFormat() != null) {
+            electronicBookInDb.setTextFormat(electronicBook.getTextFormat());
+        }
+
+        if (electronicBook.getDimension() != null) {
+            electronicBookInDb.setDimension(electronicBook.getDimension());
         }
 
         return repository.save(electronicBookInDb);

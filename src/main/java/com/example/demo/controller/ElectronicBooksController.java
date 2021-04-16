@@ -16,23 +16,23 @@ public class ElectronicBooksController {
     private ElectronicBooksService service;
 
     @GetMapping("/electronicBooks")
-    public ResponseEntity<List<ElectronicBook>> getAllE_Books() {
+    public ResponseEntity<List<ElectronicBook>> getAllElectronicBooks() {
         return ResponseEntity.ok().body(service.findAllElectronicBooks());
     }
 
     @GetMapping("/electronicBooks/{id}")
-    public ResponseEntity<ElectronicBook> getE_BookById(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<ElectronicBook> getElectronicBookById(@PathVariable(value = "id") Long id) {
         ElectronicBook electronicBook = service.findElectronicBookById(id);
         return ResponseEntity.ok().body(electronicBook);
     }
 
     @PostMapping("/electronicBooks")
-    public ResponseEntity<ElectronicBook> createE_Book(@RequestBody ElectronicBook electronicBook) {
+    public ResponseEntity<ElectronicBook> createElectronicBook(@RequestBody ElectronicBook electronicBook) {
         return ResponseEntity.ok().body(service.save(electronicBook));
     }
 
     @PutMapping("/electronicBooks/{id}")
-    public ResponseEntity<ElectronicBook> updateE_Book(
+    public ResponseEntity<ElectronicBook> updateElectronicBook(
             @PathVariable Long id,
             @RequestBody ElectronicBook electronicBook) {
         ElectronicBook updatedElectronicBook = service.update(id, electronicBook);
@@ -40,7 +40,7 @@ public class ElectronicBooksController {
     }
 
     @DeleteMapping("/electronicBooks/{id}")
-    public ResponseEntity<Void> deleteE_Book(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<Void> deleteElectronicBook(@PathVariable(value = "id") Long id) {
         service.delete(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();
     }
