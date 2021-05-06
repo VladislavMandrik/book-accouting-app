@@ -15,23 +15,23 @@ public class ElectronicBooksController {
     @Autowired
     private ElectronicBooksService service;
 
-    @GetMapping("/electronicBooks")
+    @GetMapping("/electronic-books")
     public ResponseEntity<List<ElectronicBook>> getAllElectronicBooks() {
         return ResponseEntity.ok().body(service.findAllElectronicBooks());
     }
 
-    @GetMapping("/electronicBooks/{id}")
+    @GetMapping("/electronic-books/{id}")
     public ResponseEntity<ElectronicBook> getElectronicBookById(@PathVariable(value = "id") Long id) {
         ElectronicBook electronicBook = service.findElectronicBookById(id);
         return ResponseEntity.ok().body(electronicBook);
     }
 
-    @PostMapping("/electronicBooks")
+    @PostMapping("/electronic-books")
     public ResponseEntity<ElectronicBook> createElectronicBook(@RequestBody ElectronicBook electronicBook) {
         return ResponseEntity.ok().body(service.save(electronicBook));
     }
 
-    @PutMapping("/electronicBooks/{id}")
+    @PutMapping("/electronic-books/{id}")
     public ResponseEntity<ElectronicBook> updateElectronicBook(
             @PathVariable Long id,
             @RequestBody ElectronicBook electronicBook) {
@@ -39,7 +39,7 @@ public class ElectronicBooksController {
         return ResponseEntity.ok(updatedElectronicBook);
     }
 
-    @DeleteMapping("/electronicBooks/{id}")
+    @DeleteMapping("/electronic-books/{id}")
     public ResponseEntity<Void> deleteElectronicBook(@PathVariable(value = "id") Long id) {
         service.delete(id);
         return ResponseEntity.status(HttpStatus.ACCEPTED).build();

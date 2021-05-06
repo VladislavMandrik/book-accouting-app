@@ -33,9 +33,9 @@ public class CustomWebSecurityConfigurerAdapter extends WebSecurityConfigurerAda
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/v1/electronicBooks").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT, "/api/v1/electronicBooks/*").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE, "/api/v1/electronicBooks/*").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/api/v1/electronic-books").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/api/v1/electronic-books/*").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/api/v1/electronic-books/*").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/api/v1/books").hasRole("ADMIN")
                 .antMatchers(HttpMethod.PUT, "/api/v1/books/*").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/api/v1/books/*").hasRole("ADMIN")
