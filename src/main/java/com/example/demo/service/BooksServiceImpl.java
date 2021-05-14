@@ -55,8 +55,8 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
-    public List<Book> findAllBooks() {
-        return repository.findAll();
+    public Page<Book> findAllBooks(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -66,7 +66,8 @@ public class BooksServiceImpl implements BooksService {
     }
 
     @Override
-    public Optional<Book> findBookByName(String bookName) {
-        return repository.findByBookName(bookName);
+    public Book findBookByName(String bookName) {
+        return repository.findByBookName(bookName)
+                .orElseThrow(() -> new RuntimeException(EXCEPTION_MESSAGE + bookName));
     }
 }

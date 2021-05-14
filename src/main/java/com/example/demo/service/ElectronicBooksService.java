@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.model.ElectronicBook;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ElectronicBooksService {
 
@@ -13,9 +12,9 @@ public interface ElectronicBooksService {
 
     ElectronicBook save(ElectronicBook electronicBook);
 
-    List<ElectronicBook> findAllElectronicBooks();
+    Page<ElectronicBook> findAllElectronicBooks(Pageable pageable);
 
     ElectronicBook findElectronicBookById(Long id);
 
-    Optional<ElectronicBook> findElectronicBookByName(String electronicBookName);
+    ElectronicBook findElectronicBookByName(String electronicBookName);
 }

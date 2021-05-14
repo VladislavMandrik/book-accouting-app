@@ -1,9 +1,8 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Book;
-
-import java.util.List;
-import java.util.Optional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface BooksService {
 
@@ -13,9 +12,10 @@ public interface BooksService {
 
     Book save(Book book);
 
-    List<Book> findAllBooks();
+    Page<Book> findAllBooks(Pageable pageable);
 
     Book findBookById(Long id);
 
-    Optional<Book> findBookByName(String bookName);
+    Book findBookByName(String bookName);
+
 }

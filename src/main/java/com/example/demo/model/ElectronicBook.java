@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "electronicBooks")
+@Table(name = "electronic_books")
 @EqualsAndHashCode(callSuper = true)
 public class ElectronicBook extends BasicEntity {
 

@@ -3,6 +3,8 @@ package com.example.demo.service;
 import com.example.demo.model.ElectronicBook;
 import com.example.demo.repository.ElectronicBooksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -63,8 +65,8 @@ public class ElectronicBooksServiceImpl implements ElectronicBooksService {
     }
 
     @Override
-    public List<ElectronicBook> findAllElectronicBooks() {
-        return repository.findAll();
+    public Page<ElectronicBook> findAllElectronicBooks(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -74,7 +76,8 @@ public class ElectronicBooksServiceImpl implements ElectronicBooksService {
     }
 
     @Override
-    public Optional<ElectronicBook> findElectronicBookByName(String electronicBookName) {
-        return repository.findByElectronicBookName(electronicBookName);
+    public ElectronicBook findElectronicBookByName(String electronicBookName) {
+        return repository.findByElectronicBookName(electronicBookName)
+                .orElseThrow(() -> new RuntimeException(EXCEPTION_MESSAGE + electronicBookName));
     }
 }
